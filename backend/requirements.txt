@@ -1,0 +1,18 @@
+# Core framework
+fastapi
+uvicorn[standard]
+# Database (SQLite + ORM)
+sqlalchemy
+databases
+alembic   # optional, for migrations
+# Authentication & Security
+python-jose[cryptography]   # JWT tokens
+passlib[bcrypt]             # password hashing
+# Middleware & Utilities
+starlette                   # comes with FastAPI, but good to list
+pydantic                    # data validation
+# Async SQLite driver (optional if you use SQLite)
+aiosqlite
+# Testing
+pytest
+httpx
