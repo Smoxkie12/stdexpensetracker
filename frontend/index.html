@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StudentExpenseTracker — Track student spending easily</title>
+    <meta name="description" content="A simple, clean student expense tracker built with plain HTML, CSS and JavaScript. Add expenses, view history and see totals by category." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <header class="header">
+        <div class="container header-inner">
+          <a href="#home" class="brand">
+            <span>👛</span>
+            <span>StudentExpenseTracker</span>
+          </a>
+          <nav class="nav">
+            <a href="#home" data-nav="home">Home</a>
+            <a href="#add" data-nav="add">Add Expense</a>
+            <a href="#dashboard" data-nav="dashboard">Dashboard</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="main">
+        <!-- Home page -->
+        <section id="page-home" class="page-view">
+          <div class="container">
+            <div class="hero">
+              <h1>Track your student expenses with ease</h1>
+              <p>
+                StudentExpenseTracker helps you record daily spending, categorize it, and
+                see where your money goes — all in a clean, simple interface.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#add">Add an expense →</a>
+                <a class="btn btn-outline" href="#dashboard">View dashboard</a>
+              </div>
+            </div>
+
+            <div class="grid-3">
+              <div class="card">
+                <div class="card-icon">🧾</div>
+                <h3>Add expenses quickly</h3>
+                <p>Enter the name, amount, category, and date in a simple form.</p>
+              </div>
+              <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>See your spending</h3>
+                <p>Review a clear list of all expenses and spot your habits.</p>
+              </div>
+              <div class="card">
+                <div class="card-icon">🐷</div>
+                <h3>Stay on budget</h3>
+                <p>Track totals by category so you can manage money better.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Add Expense page -->
+        <section id="page-add" class="page-view" hidden>
+          <div class="container form-wrapper">
+            <div class="card">
+              <h1 style="margin: 0; font-size: 24px">Add Expense</h1>
+              <p class="muted" style="margin-top: 4px">
+                Enter the details of your spending below.
+              </p>
+
+              <div id="form-alert" class="alert" hidden></div>
+
+              <form id="expense-form" style="margin-top: 24px" novalidate>
+                <div class="field">
+                  <label for="name">Expense name</label>
+                  <input id="name" name="name" type="text" placeholder="e.g. Lunch, Bus ticket, Notebook" />
+                </div>
+
+                <div class="field">
+                  <label for="amount">Amount (₹)</label>
+                  <input id="amount" name="amount" type="number" min="0" step="0.01" placeholder="0.00" />
+                </div>
+
+                <div class="field">
+                  <label for="category">Category</label>
+                  <select id="category" name="category">
+                    <option value="">Select a category</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="date">Date</label>
+                  <input id="date" name="date" type="date" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">💾 Save Expense</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- Dashboard page -->
+        <section id="page-dashboard" class="page-view" hidden>
+          <div class="container">
+            <h1 style="margin: 0; font-size: 28px">Dashboard</h1>
+            <p class="muted" style="margin-top: 4px">A quick overview of your spending.</p>
+
+            <div class="grid-summary">
+              <div class="summary-card">
+                <div style="display: flex; align-items: center; gap: 12px">
+                  <div class="card-icon" style="margin-bottom: 0">👛</div>
+                  <div>
+                    <p class="label">Total expenses</p>
+                    <p class="value" id="stat-total">₹0.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-card">
+                <div style="display: flex; align-items: center; gap: 12px">
+                  <div class="card-icon" style="margin-bottom: 0">🏷️</div>
+                  <div>
+                    <p class="label">Categories used</p>
+                    <p class="value" id="stat-categories">0</p>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-card">
+                <div style="display: flex; align-items: center; gap: 12px">
+                  <div class="card-icon" style="margin-bottom: 0">📅</div>
+                  <div>
+                    <p class="label">Transactions</p>
+                    <p class="value" id="stat-count">0</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section" id="category-section" hidden>
+              <h2>Spending by category</h2>
+              <div class="tags" id="category-tags"></div>
+            </div>
+
+            <div class="section">
+              <h2>Expense history</h2>
+
+              <div class="empty" id="empty-state">
+                <p style="margin: 0">No expenses recorded yet.</p>
+                <a href="#add">Add your first expense</a>
+              </div>
+
+              <div class="table-wrap" id="table-wrap" hidden>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Category</th>
+                      <th>Date</th>
+                      <th class="text-right">Amount</th>
+                      <th class="text-center">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="expense-rows"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        StudentExpenseTracker — built for students to track spending easily.
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
