@@ -1,27 +1,40 @@
-from fastapi import APIRouter
+from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import List
+import uuid
 
-router = APIRouter()
+app = FastAPI()
 
-# Login route
-@router.post("/login")
-def login(username: str, password: str):
-    # For now, just return a dummy response
-    return {"message": f"Welcome {username}!"}
+class Expense(BaseModel):
+    id: str
+    name: str
+    amount: float
+    category: str
+    date: str
 
-# Expenses route
-@router.get("/expenses")
+expenses: List[Expense] = []
+
+
+# roadmap for my backend
+
+# step-1 To create a new backend endpoint for connection in line 23 of app.js
+@app.get("/api/expenses")
 def get_expenses():
-    # Dummy data for testing
-    return [
-        {"id": 1, "name": "Books", "amount": 500},
-        {"id": 2, "name": "Snacks", "amount": 150},
-    ]
+    return expenses
+
+# step 2 - to create a new backend endpoint for connection in line 32 of app.js
+@app.post("api/expenses")
+def save_expense(expense: Expense):
+    expense.id = str(uuid.uuid4())
+    expenses.append(expense)
+    return {"message": "Expense saved", "expense": expense}
+
+# step-3 to create a new backend endpont for connection in line 44 of app.js
+
+@app.delete("/api/expenses/{expense_id}")
+def delete_expense(expense_id: str):
+    global expenses
+    expenses = [e for e in expenses if e.id != expense_id]
+    return {"message": "Expense deleted"}
 
 
-# from fastapi import APIRouter
-
-# router = APIRouter()
-
-# @router.get("/")
-# def home():
-#     return {"message": "Backend is running!"}
