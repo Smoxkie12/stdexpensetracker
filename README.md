@@ -61,30 +61,6 @@ This project combines real-world development practices with educational value, s
 
 ---
 
-## Development Roadmap
-
-### Phase 1: Frontend Development (Current)
-- [ ] UI/UX design implementation
-- [ ] Responsive layout development
-- [ ] Interactive components with JavaScript
-- [ ] Frontend testing
-
-### Phase 2: Backend Development
-- [ ] FastAPI project initialization
-- [ ] Database schema design
-- [ ] Authentication system implementation
-- [ ] Core API endpoints (CRUD operations)
-- [ ] Backend testing and validation
-
-### Phase 3: Integration & Deployment
-- [ ] Frontend-backend integration
-- [ ] End-to-end testing
-- [ ] Cloud infrastructure setup
-- [ ] Production deployment
-- [ ] Monitoring and logging
-
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -92,23 +68,6 @@ This project combines real-world development practices with educational value, s
 - Git
 - A code editor (VS Code recommended)
 
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/Smoxkie12/stdexpensetracker.git
-
-# Navigate to project directory
-cd stdexpensetracker
-
-# Install dependencies (when available)
-pip install -r requirements.txt
-
-# Start development server
-python -m uvicorn main:app --reload
-```
-
----
 
 ## Project Structure
 
@@ -129,38 +88,7 @@ stdexpensetracker/
 
 ---
 
-## Design Philosophy
 
-This project is built on three core principles:
-
-**1. Functionality Over Form** — Delivering working features that solve real problems
-
-**2. Incremental Development** — Building systematically with clear phases and validation
-
-**3. Production-Ready Quality** — Implementing best practices for maintainability and scalability
-
----
-
-## Learning Outcomes
-
-By completing this project, you will gain:
-
-- ✓ Proficiency with FastAPI and Python web frameworks
-- ✓ Understanding of RESTful API design principles
-- ✓ Advanced Python programming fundamentals
-- ✓ Full-stack integration experience
-- ✓ Practical knowledge of cloud deployment
-- ✓ Confidence in building scalable applications
-
----
-
-## Project Status
-
-| Phase | Component | Status |
-|-------|-----------|--------|
-| 1 | Frontend Development | 🔄 In Progress |
-| 2 | Backend Development | 📋 Planned |
-| 3 | Deployment | 📋 Planned |
 
 ---
 
