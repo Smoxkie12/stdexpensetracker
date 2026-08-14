@@ -61,12 +61,6 @@ This project combines real-world development practices with educational value, s
 
 ---
 
-## Getting Started
-
-### Prerequisites
-- Python 3.8+
-- Git
-- A code editor (VS Code recommended)
 
 
 ## Project Structure
@@ -92,4 +86,3 @@ stdexpensetracker/
 
 ---
 
-**Building better software, one step at a time. 🚀**
