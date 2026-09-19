@@ -12,19 +12,6 @@ This project combines real-world development practices with educational value, s
 
 ---
 
-## Table of Contents
-
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Goals](#project-goals)
-- [Development Roadmap](#development-roadmap)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Design Philosophy](#design-philosophy)
-- [Learning Outcomes](#learning-outcomes)
-
----
-
 ## Features
 
 ### Core Functionality
